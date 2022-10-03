@@ -34,10 +34,14 @@ const Home = ({ version }: { version: string }) => {
         </div>
       );
     }
-    const filteredSearchedResults = response.data.filter(
+    const filteredSearchResults = response.data.filter(
       (item) => item.name.toLowerCase().indexOf(search.toLowerCase()) > -1,
     );
-    return view === 'cards' ? <Cards data={filteredSearchedResults} /> : <Table />;
+    return view === 'cards' ? (
+      <Cards data={filteredSearchResults} />
+    ) : (
+      <Table data={response.data} />
+    );
   };
 
   return (

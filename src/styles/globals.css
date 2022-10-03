@@ -15,6 +15,11 @@ a {
   box-sizing: border-box;
 }
 
+.ag-theme-alpine {
+  /* disable all borders */
+  --ag-borders: none;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

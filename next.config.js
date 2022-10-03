@@ -16,6 +16,12 @@ module.exports = (phase) => {
         version: `${pkg.version}-dev`,
       },
     };
+  } else {
+    nextConfig.publicRuntimeConfig = {
+      pkg: {
+        version: `${pkg.version}-prod`,
+      },
+    };
   }
 
   return nextConfig;

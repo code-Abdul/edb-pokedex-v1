@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { ReactNode } from 'react';
 import useSWR from 'swr';
 
 import { Chip } from '@/components/Chip';
@@ -38,7 +39,7 @@ const Pokemon: React.FC = () => {
             <Link href="/">← Back</Link>
           </header>
 
-          {response.data ? (
+          {response?.data ? (
             <div className="flex flex-col items-center">
               {/* Image */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -60,7 +61,7 @@ const Pokemon: React.FC = () => {
                       <motion.li key={key} variants={fadeInUp} className="flex items-center">
                         <div className="font-bold">{key}</div>
                         <div className="ml-auto">
-                          <Chip>{value}</Chip>
+                          <Chip>{value as ReactNode}</Chip>
                         </div>
                       </motion.li>
                     ))}
